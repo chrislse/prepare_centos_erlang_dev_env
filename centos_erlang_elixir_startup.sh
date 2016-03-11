@@ -1,16 +1,16 @@
 #!/bin/bash
 current_dir=$(pwd)
 cd
-yum -y install epel-release
-yum -y update && yum -y upgrade
-yum -y install gcc gcc-c++ glibc-devel make ncurses-devel openssl-devel autoconf java-1.8.0-openjdk-devel git
-yum -y install wxBase.x86_64
-yum -y install wget
+sudo yum -y install epel-release
+sudo yum -y update && yum -y upgrade
+sudo yum -y install gcc gcc-c++ glibc-devel make ncurses-devel openssl-devel autoconf java-1.8.0-openjdk-devel git
+sudo yum -y install wxBase.x86_64
+sudo yum -y install wget
 wget http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm
-rpm -Uvh erlang-solutions-1.0-1.noarch.rpm
+sudo rpm -Uvh erlang-solutions-1.0-1.noarch.rpm
 yum -y install esl-erlang
+sudo git clone https://github.com/elixir-lang/elixir.git /opt/elixir
 sudo chown `whoami` /opt/elixir
-git clone https://github.com/elixir-lang/elixir.git /opt/elixir
 ln -sf /opt/elixir elixir
 cd elixir/
 make clean test
@@ -30,6 +30,6 @@ sudo yum -y install python-devel
 
 cd ~/.vim/bundle/YouCompleteMe/
 ./install.py
-.vimrc ~/
+cp .vimrc ~/
 
 
