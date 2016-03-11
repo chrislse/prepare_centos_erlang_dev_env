@@ -1,5 +1,6 @@
 #!/bin/bash
 current_dir=$(pwd)
+cd
 yum -y install epel-release
 yum -y update && yum -y upgrade
 yum -y install gcc gcc-c++ glibc-devel make ncurses-devel openssl-devel autoconf java-1.8.0-openjdk-devel git
@@ -18,4 +19,17 @@ sudo ln -s /opt/elixir/bin/mix /usr/local/bin/mix
 sudo ln -s /opt/elixir/bin/elixir /usr/local/bin/elixir
 sudo ln -s /opt/elixir/bin/elixirc /usr/local/bin/elixirc
 cd $current_dir
+
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+ruby install.rb
+sudo yum -y install ctags
+sudo yum -y install cmake
+sudo yum -y install python-devel
+
+cd ~/.vim/bundle/YouCompleteMe/
+./install.py
+.vimrc ~/
+
 
